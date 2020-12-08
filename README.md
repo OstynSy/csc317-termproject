@@ -10,9 +10,9 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+| Student Name  | Ostyn Sy      |
+| Student ID    | 921458262     |
+| Student Email | osy@mail.sfsu.edu    |
 
 
 
