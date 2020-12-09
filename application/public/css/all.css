@@ -1,0 +1,257 @@
+
+html {
+    background-color: #addfed;
+}
+
+header {
+    text-align: center;
+    border-bottom: solid;
+    border-bottom-color: lightgrey;
+}
+
+form {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+label {
+    height: 20px;
+    font-size: 20px;
+    padding: 0px 5px 0px 0px;
+}
+
+input {
+    border-radius: 7px;
+    height: 20px;
+    width: 290px;
+    box-shadow: 0px 0px 3px 0px black;
+}
+
+/*Classes*/
+.login-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 60px;
+    width: 300px;
+    border: 3px solid #0026ff;
+    border-radius: 7px;
+    transform: translate(-50%, -50%);
+    font-family: Arial;
+    font-weight: bold;
+    height: 350px;
+    background-color: #edeff2;
+}
+
+.post-centered {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    padding: 20px 60px 60px 60px;
+    width: 500px;
+    height: 510px;
+    border: 3px solid #0026ff;
+    border-radius: 7px;
+    transform: translate(-50%, -50%);
+    font-family: Arial;
+    font-weight: bold;
+    background-color: #edeff2;
+}
+
+.register-centered {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    padding: 20px 60px 60px 60px;
+    width: 350px;
+    border: 3px solid #0026ff;
+    border-radius: 7px;
+    transform: translate(-50%, -50%);
+    font-family: Arial;
+    font-weight: bold;
+    height: 530px;
+    background-color: #edeff2;
+}
+
+.labelcontainer {
+    padding-top: 20px;
+}
+
+.buttoncontainer {
+    text-align: center;
+}
+
+.checklabel {
+    font-size: 18px;
+}
+
+/*Ids*/
+#login {
+    width: 150px;
+    height: auto;
+    border: 2px solid;
+    border-color: black;
+    padding: 7px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: cornflowerblue;
+}
+
+#pdescription {
+    height: 100px;
+    width: 400px;
+}
+
+#imagecontainer {
+    padding: 30px 0px 30px 0px;
+    margin-bottom: 20px;
+}
+
+#checkTOS {
+    width: 20px;
+    height: 20px
+}
+
+#submit {
+    width: 150px;
+    height: auto;
+    border: 2px solid;
+    border-color: black;
+    padding: 7px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: cornflowerblue;
+}
+
+#register-checkboxcont {
+    padding: 7px;
+}
+
+#post-checkboxcont {
+    padding-top: 20px;
+}
+
+#checkage {
+    width: 20px;
+    height: 20px;
+}
+
+#register {
+    width: 150px;
+    height: auto;
+    border: 2px solid;
+    border-color: black;
+    padding: 7px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: cornflowerblue;
+    margin-top: 30px;
+}
+
+#register-error {
+    color: red;
+    font-size: 15px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+/*Banner*/
+#banner {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    width: 60%;
+    height: 10%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #4e50f2;
+}
+
+#banner-text {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 50px;
+    color: white;
+}
+
+#banner-icon {
+    top: 9%;
+    left: 50%;
+}
+
+/*nav bar*/
+.nav-items {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav-items a:hover {
+     background-color: #ddd;
+     color: black;
+}
+
+.nav-items a.active {
+    background-color: #2196F3;
+    color: white;
+}
+
+#nav-bar {
+    overflow: hidden;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    width: 60%;
+    height: 5%;
+    transform: translate(-50%, -50%);
+    font-family: Arial;
+    font-weight: bold;
+    color: white;
+    background-color: #9ea6a8;
+}
+
+
+
+#brand{
+
+}
+
+#brand-text{
+
+}
+
+#search-text{
+
+}
+
+
+/*Footer*/
+#footer-name {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #848a8c;
+    color: white;
+    text-align: center;
+}
+
+#email-link {
+    position: fixed;
+    left: 54%;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    font-family: Arial;
+}
+

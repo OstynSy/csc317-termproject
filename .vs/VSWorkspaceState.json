@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\application",
+    "\\application\\bin",
+    "\\application\\public",
+    "\\application\\public\\css",
+    "\\application\\public\\js",
+    "\\application\\routes",
+    "\\application\\views",
+    "\\application\\views\\partials"
+  ],
+  "SelectedNode": "\\application\\public\\js\\formValidation.js",
+  "PreviewInSolutionExplorer": false
+}

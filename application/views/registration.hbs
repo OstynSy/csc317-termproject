@@ -1,0 +1,49 @@
+<div class="register-centered">
+	<header>
+	<h1>Registration Form</h1>
+	</header>
+
+<form name ="registerform" onsubmit="return errorMessage();">
+		<div class="labelcontainer">
+			<label for="uname">Username</label>
+		</div>
+		<div>
+			<input type="text" name="uname" required/>
+		</div>
+		<div class="labelcontainer">
+			<label for="email">Email</label>
+		</div>
+		<div>
+			<input type="email" name="email" required/>
+		</div>
+
+		<div class="labelcontainer">
+			<label for="pword">Password</label>
+		</div>
+		<div>
+			<input type="password" name="pword" required/>
+		</div>
+
+		<div class="labelcontainer">
+			<label for="cpword">Confirm Password</label>
+		</div>
+		<div>
+			<input type="password" name="cpword" required/>
+		</div>
+		<div id="register-checkboxcont">
+			<input type="checkbox" id="checkage" name="checkage" required/> 
+			<label class="checklabel" for="checkTOS">Over 13+ years of age</label>	
+		</div>
+
+		<div id="register-checkboxcont">
+			<input type="checkbox" id="checkTOS" name="TOS" required/>
+			<label class="checklabel" for="checkTOS"><a href=""> Accept TOS and Privacy Rules</a></label>	
+		</div>
+	<div id="register-error" ></div>
+	<div class="buttoncontainer">
+		<input type="submit" id="register" value="Register"/>
+	</div>
+</form>
+</div>
+	
+	<script src="../js/formValidation.js"></script>
