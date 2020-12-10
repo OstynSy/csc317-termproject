@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var sessions = require('express-session');
+var mysqlSessions = require('express-mysql-session')(sessions);
 //import express handlebars
 var handlebars = require('express-handlebars');
 var indexRouter = require('./routes/index');
@@ -27,6 +29,20 @@ app.engine(
     })
 );
 
+var mysqlSessionStore = new mysqlSessions(
+    {
+        //using default options
+    },
+    require('./config/database'));
+
+app.use(sessions({
+    key: "csid",
+    secret: "This is a secret from csc317",
+    store: mysqlSessionStore,
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.set("view engine", "hbs");
 app.use(logger('dev'));
 app.use(express.json());
@@ -34,11 +50,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
 
-
 app.use((req, res, next) => {
     requestPrint(req.url);
     next();
 });
+
+app.use((req, res, next) => {
+    console.log(req.session);
+    if (req.session.username) {
+        res.locals.logged = true;
+    }
+    next();
+})
 
 app.use('/', indexRouter);
 app.use('/dbtest', dbRouter);
@@ -53,10 +76,5 @@ app.use((err, req, res, next) => {
     console.log(err);
     res.render('error', { error_message: err });
 });
-
-app.use((err, req, res, next) => {
-    console.log('I am a middleware ERR function')
-    next();
-})
 
 module.exports = app;

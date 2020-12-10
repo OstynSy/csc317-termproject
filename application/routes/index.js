@@ -21,9 +21,10 @@ router.get('/postimage', (req, res, next) => {
     res.render("postimage", {title: "Create Post" });
 });
 
+/*
 //localhost:3000/logout
 router.get('/logout', function (req, res, next) {
     res.send('hello logout.html')
 });
-
+*/
 module.exports = router;

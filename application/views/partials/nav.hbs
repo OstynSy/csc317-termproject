@@ -3,9 +3,9 @@
     <input type="text" placeholder="Search..">
 
     {{#if logged}}
-    <a href="/users/logout">Log Out</a>
+    <a id="logout-button">Log Out</a>
     {{else}}
-    <a href="/login">Login</a>
+    <a id="login-button" href="/login">Login</a>
     {{/if}}
 
     <a href="/postimage">Post</a>
