@@ -79,6 +79,7 @@ input {
 
 .buttoncontainer {
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .checklabel {
@@ -91,12 +92,17 @@ input {
     height: auto;
     border: 2px solid;
     border-color: black;
-    padding: 7px;
+    padding: 10px;
     border-radius: 5px;
     font-weight: bold;
     font-size: 18px;
     color: white;
     background-color: cornflowerblue;
+}
+
+#Login-Reg {
+    margin-top: 5px;
+    font-size: 15px;
 }
 
 #pdescription {
@@ -177,7 +183,7 @@ input {
     font-weight: bold;
     font-family: Arial;
     font-size: 50px;
-    color: white;
+    color: #fc0394;
 }
 
 #banner-icon {
