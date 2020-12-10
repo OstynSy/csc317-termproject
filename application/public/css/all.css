@@ -262,3 +262,14 @@ input {
     font-family: Arial;
 }
 
+/*flash-messages*/
+#flash-message{
+    position: fixed;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%,0);
+}
+
+#flash-message div {
+    text-align: center;
+}
