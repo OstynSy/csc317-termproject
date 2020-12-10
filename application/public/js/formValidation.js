@@ -39,7 +39,6 @@ function containsSpecial(text) {
     return (/[/*-+!@#$^&*]/).test(text);
 } 
 
-
 function passwordMatch(pass, cpass) {
     if (pass == cpass) {
         return true;
@@ -49,11 +48,9 @@ function passwordMatch(pass, cpass) {
     }
 }
 
-
-
 function errorMessage() {
     var validated = true;
-    var error = document.getElementById("error");
+    var error = document.getElementById("regerror");
     var username = document.registerform.uname.value;
     var password = document.registerform.pword.value;
     var cpassword = document.registerform.cpword.value;
