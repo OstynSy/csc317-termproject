@@ -83,11 +83,9 @@ function errorMessage() {
         error.innerHTML = "*Passwords do not match";
         validated = false;
     }
-
     else {
         error.innerHTML = "";
     }
-
     return validated;
 }
 

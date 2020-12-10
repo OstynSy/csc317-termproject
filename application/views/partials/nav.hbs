@@ -1,6 +1,12 @@
 ﻿<nav class="nav-bar">
     <a class="active" href="/">Home</a>
     <input type="text" placeholder="Search..">
+
+    {{#if logged}}
+    <a href="/users/logout">Log Out</a>
+    {{else}}
     <a href="/login">Login</a>
+    {{/if}}
+
     <a href="/postimage">Post</a>
 </nav>

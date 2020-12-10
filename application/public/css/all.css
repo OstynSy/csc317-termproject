@@ -98,6 +98,7 @@ input {
     font-size: 18px;
     color: white;
     background-color: cornflowerblue;
+    margin-top: 30px;
 }
 
 #Login-Reg {
@@ -120,7 +121,7 @@ input {
     height: 20px
 }
 
-#submit {
+#imagepost {
     width: 150px;
     height: auto;
     border: 2px solid;
@@ -131,6 +132,7 @@ input {
     font-size: 18px;
     color: white;
     background-color: cornflowerblue;
+    margin-top: 30px;
 }
 
 #register-checkboxcont {

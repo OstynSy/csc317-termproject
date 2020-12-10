@@ -3,24 +3,24 @@
 		<h1>Login Form</h1>
 	</header>
 
-	<form>
+	<form id="login-form" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
 		<div class="labelcontainer">
 			<label for="uname">Username</label>
 		</div>
 		<div>
-			<input type="text" name="uname" />
+			<input type="text" name="uname" placeholder="Username" required />
 		</div>
 
 		<div class="labelcontainer">
 			<label for="pword">Password</label>
 		</div>
 		<div>
-			<input type="password" name="pword" />
+			<input type="password" name="pword" placeholder="Password" required />
+		</div>
+		<div class="buttoncontainer">
+			<input type="submit" id="login" value="Log in" />
 		</div>
 	</form>
-	<div class="buttoncontainer">
-		<input type="submit" id="login" value="Log in" />
-	</div>
 	<div>
 	<label id="Login-Reg">Do not have an account?<a href="/registration"> Register Here! </a></label>
 	</div>
