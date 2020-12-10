@@ -45,6 +45,11 @@ app.use('/dbtest', dbRouter);
 app.use('/users', usersRouter);
 
 app.use((err, req, res, next) => {
+    res.status(500);
+    res.send('Something whent wrong with your db');
+});
+
+app.use((err, req, res, next) => {
     console.log(err);
     res.render('error', { error_message: err });
 });
