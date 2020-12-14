@@ -3,22 +3,22 @@
 		<h1>Image Posting</h1>
 	</header>
 
-	<form id="post-image" method="POST" enctype="multipart/form-data" action="/posts/createPost">
+	<form id="post-image" method="POST" enctype="multipart/form-data">
 		<div class="container">
 			<label for="ptitle">Title</label>
-			<input type="text" name="ptitle" />
+			<input type="text" name="ptitle" placeholder="Post Title" required/>
 		</div>
 
 		<div class="labelcontainer">
 			<div>
 				<label for="pdescription">Description</label>
 			</div>
-			<input type="text" id="pdescription" name="pdescription" />
+			<input type="text" id="pdescription" name="pdescription" placeholder="Write Post Description here..." required/>
 		</div>
 
 		<div id="imagecontainer">
 			<label for="pimage">Images</label>
-			<input type="file" name="pimage" />
+			<input type="file" name="uploadImage" required/>
 		</div>
 
 		<div id="post-checkboxcont">
@@ -31,3 +31,23 @@
 		</div>
 	</form>
 </div>
+
+<script>
+	const _form = document.getElementById('post-image');
+	_form.onsubmit = function (event) {
+		event.preventDefault();
+		let _body = new FormData(_form);
+
+		axios('/posts/createPost', {
+			data: _body,
+			method: "POST"
+		})
+			.then((data) => {
+                let response = data.data;
+				console.log(response.data);
+				alert(response.message);
+				location.replace(response.redirect);
+			})
+			.catch(err => console.log(err));
+    }
+</script>

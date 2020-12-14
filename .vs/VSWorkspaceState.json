@@ -2,15 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\application",
-    "\\application\\config",
-    "\\application\\helpers",
-    "\\application\\helpers\\debug",
-    "\\application\\helpers\\error",
-    "\\application\\notes",
     "\\application\\public",
+    "\\application\\public\\images",
+    "\\application\\public\\images\\uploads",
+    "\\application\\routes",
     "\\application\\views",
     "\\application\\views\\layouts"
   ],
-  "SelectedNode": "\\application\\views\\layouts\\home.hbs",
+  "SelectedNode": "\\application\\views\\registration.hbs",
   "PreviewInSolutionExplorer": false
 }

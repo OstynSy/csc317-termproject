@@ -65,8 +65,8 @@ router.post('/login', (req, res, next) => {
     let username = req.body.uname;
     let password = req.body.pword;
 
-    //validate data, if bad send back response
-    //res.redirect('/login')
+        //validate data, if bad send back response
+    //res.redirect('/registration')
 
     let baseSQL = "SELECT id, username, password FROM users WHERE username=?;"
     let userId;
@@ -99,8 +99,7 @@ router.post('/login', (req, res, next) => {
             if (err instanceof UserError) {
                 errorPrint(err.getMessage());
                 req.flash('error', err.getMessage());
-                res.status(err.getStatus());
-                res.redirect('/login');        
+                res.status(err.getStatus());                  
             }
             else {
                 next(err);

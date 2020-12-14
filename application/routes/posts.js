@@ -20,9 +20,50 @@ var storage = multer.diskStorage({
 
 var uploader = multer({ storage: storage });
 
-router.post('/createPost', uploader.single("pimage"), (req, res, next) => {
-    console.log(req);
-    res.send('');
+router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
+    let fileUploaded = req.file.path;
+    let fileAsThumbnail = `thumbnail-${req.file.filename}`;
+    let destOfThumbnail = req.file.destination + "/" + fileAsThumbnail;
+    let title = req.body.ptitle;
+    let desc = req.body.pdescription;
+    let fk_userid = req.session.userId;
+
+    //express validation
+    //Server validation
+    // make sure title desc and fk are not empty
+    //if any values that used for the insert statement
+    //are udnefined, mysql.query or execute will fail
+    //with the following error
+    // BIND parameters cannot be undefined
+    //will fail if db.query('',[undefined])
+
+    sharp(fileUploaded)
+    .resize(200)
+    .toFile(destOfThumbnail)
+    .then(() => {
+        let baseSQL = 'INSERT INTO posts (title, description, photopath, thumbnail, created, fk_userid) VALUE (?,?,?,?, now(),?);';
+        return db.execute(baseSQL, [title, desc, fileUploaded, destOfThumbnail, fk_userid]);
+    })
+    .then(([results, fields]) => {
+        if (results && results.affectedRows) {
+            req.flash('success', 'Your post was created successfully!');
+            res.json({ status: "OK", message: "post was created", "redirect": "/"});
+        }
+        else {
+            res.json({status: "OK", message: "post was not created", "redirect": "/postimage" });
+        }
+    })
+    .catch((err) => {
+        if (err instanceof PostError) {
+            errorPrint(err.getMessage());
+            req.flash('error', err.getMessage());
+            res.status(err.getStatus());
+            res.redirect(err.getRedirectURL());
+        }
+        else {
+            next(err);
+        }
+    })
 });
 
 module.exports = router;

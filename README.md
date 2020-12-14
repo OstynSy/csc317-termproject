@@ -60,18 +60,23 @@ CREATE TABLE IF NOT EXISTS `csc317db`.`posts` (
 ENGINE = InnoDB
 
 ## Dependencies
-npm i nodemon
-npm i bcrypt
-npm i express-sessions express-mysql-session
-npm i mysql2
-npm i express-flash
-npm i express-handlebars
-npm i express
-npm i morgan
-npm i colors
-npm i cookie-parser
-npm i debug
-npm i multer sharp
+To install dependencies:
+    use 'npm i {dependency}' in console
+1. nodemon
+2. bcrypt
+3. express-sessions 
+3. express-mysql-session
+4. mysql2
+5. express-flash
+6. express-handlebars
+7. express
+8. morgan
+9. colors
+10. debug
+11. multer
+12. sharp
+13. axios
+14. fetch
 
 ## Build Instructions
 1. 

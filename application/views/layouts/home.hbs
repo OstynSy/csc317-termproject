@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="public/css/all.css">
     <script defer src="/public/js/frontendjs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>{{title}}</title>
 </head>
 <body>
@@ -23,13 +24,15 @@
             let ele = document.getElementById('logout-button');
             if (ele) {
                 ele.onclick = (even) => {
-                    fetch('/users/logout', {method: "POST"}).then((data) => {
-                    location.replace('/'); 
+                    fetch('/users/logout', {
+                        method: "POST"
+                    })
+                    .then((data) => {
+                        location.replace('/'); 
                     })
                 }
             }
         </script>
     {{/if}}
-
 </body>
 </html>
