@@ -6,7 +6,7 @@ var db = require('../config/database');
 
 /* GET home page. */
 router.get('/', getRecentPosts, function (req, res, next) {
-    res.render('index',{title:"Ostyn APP"});
+    res.render('index',{title:"AniMedia"});
 });
 
 //localhost:3000/login
@@ -50,10 +50,4 @@ router.get('/post/:id(\\d+)', (req, res, next) => {
         })
 });
 
-/*
-//localhost:3000/logout
-router.get('/logout', function (req, res, next) {
-    res.send('hello logout.html')
-});
-*/
 module.exports = router;
