@@ -303,13 +303,6 @@ input {
     background: #4aa1e8;
 }
 
-.search-form::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-
 /*Footer*/
 #footer-name {
     position: fixed;
@@ -336,6 +329,8 @@ input {
     left: 50%;
     top: 17%;
     transform: translate(-50%,0);
+    z-index: 9999;
+    font-size: 20px;
 }
 
 #flash-message div {
@@ -345,10 +340,10 @@ input {
 /*Cards*/
 #main-content{
     position: absolute;
-    width: 1340px;
-    height: 690.39px;
+    width: 70%;
+    height: 35%;
     top: 20%;
-    left: 17.5%;
+    left: 15%;
     grid-area: content;
     padding-top: .35rem;
     padding-bottom: .35rem;
@@ -381,11 +376,11 @@ input {
     }
 }
 
-.card{
-    display:grid;
+.card {
+    display: grid;
     grid-template-rows: 186px 156px;
     grid-template-columns: auto;
-    border: .0625rem solid #cccccc;
+    border: .0625rem solid #c7ddff;
     border-radius: .25rem;
     box-shadow: 0 2px 2px #dfdede;
 }
@@ -399,18 +394,20 @@ div[class=card] > img{
     width:100%;
 }
 
-.card-title{
+.card-title {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-bottom: .1rem;
     margin-top: 0;
     padding-top: .1rem;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.card-body{
+.card-body {
     grid-area: 2 / 1 / 3 / 2;
     padding: .75rem;
-    background-color: #232f3e;
+    background-color: #1b2d42;
     border-radius: 0 0 .2rem .2rem;
 }
 
@@ -472,7 +469,7 @@ div[class=card-body] > a[class=card-button]{
 
 #image-description-container {
     height: 100px;
-    width: 500px;
+    width: 570px;
     padding-top: 5px;
     padding-bottom: 7px;
     border: solid 2px;
