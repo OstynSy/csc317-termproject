@@ -9,11 +9,6 @@ header {
     border-bottom-color: lightgrey;
 }
 
-form {
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
 label {
     height: 20px;
     font-size: 20px;
@@ -25,6 +20,22 @@ input {
     height: 20px;
     width: 290px;
     box-shadow: 0px 0px 3px 0px black;
+}
+
+/*Forms*/
+#post-image-form {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#registerform {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#login-form {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 /*Classes*/
@@ -99,6 +110,7 @@ input {
     font-size: larger;
     padding-left: .25rem;
     padding-right: .25rem;
+    font-family:'Comic Sans MS';
 }
 
 .anchor-buttons:hover{
@@ -209,7 +221,7 @@ input {
     font-weight: bold;
     font-family: Arial;
     font-size: 50px;
-    color: #fc0394;
+    color: white;
 }
 
 #banner-icon {
@@ -255,14 +267,46 @@ input {
     color: white;
 }
 
-.nav-bar input[type=text] {
-    
-    padding: 6px;
+.nav-bar input[type=text] { 
     border: none;
-    margin-top: 9px;
-    margin-right: 30px;
-    margin-left: 30px;
     font-size: 17px;
+}
+
+/*Search form*/
+.search-form{
+    margin-top: 8px;
+}
+
+.search-form input[type=text] {
+    padding: 7px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 30%;
+    background: #f1f1f1;
+    margin-left: 150px;
+}
+
+.search-form button {
+    float: left;
+    width: 5%;
+    padding: 7px;
+    background: #4c28ed;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background: #4aa1e8;
+}
+
+.search-form::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 
@@ -290,7 +334,7 @@ input {
 #flash-message{
     position: fixed;
     left: 50%;
-    top: 15%;
+    top: 17%;
     transform: translate(-50%,0);
 }
 
@@ -304,7 +348,7 @@ input {
     width: 1340px;
     height: 690.39px;
     top: 20%;
-    left: 15%;
+    left: 17.5%;
     grid-area: content;
     padding-top: .35rem;
     padding-bottom: .35rem;
@@ -378,3 +422,77 @@ div[class=card-body] > a[class=card-button]{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/*ImagePost*/
+.imagepost-centered {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    padding: 60px;
+    width: 1350px;
+    height: 650px;
+    border: 3px solid #0026ff;
+    border-radius: 7px;
+    transform: translate(-50%, -50%);
+    font-family: Arial;
+    font-weight: bold;
+    background-color: #edeff2;
+}
+
+#image-title-container {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-decoration: underline;
+}
+#image-title-label{
+    
+}
+
+#image-info-container{
+
+}
+
+#image-author-container {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#image-author-label{
+
+}
+
+#image-time-container {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#image-time-label{
+
+}
+
+#image-description-container {
+    height: 100px;
+    width: 500px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    border: solid 2px;
+    background-color: #e7e6ed;
+    margin-bottom: 7px;
+}
+
+#image-description-label {
+    padding: 2px;
+    font-weight: normal;
+}
+
+#image-post-container {
+    height: 200px;
+    border: 1px;
+    border-color: #1e1859;
+}
+
+#image-post-image {
+    max-width: 200%;
+    max-height: 200%;
+}
+

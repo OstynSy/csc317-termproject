@@ -1,46 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8>">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="public/css/imagepost.css">
-	<title>ImagePosts</title>
-</head>
-<body>
-	<div class="centered">
-		<header>
-			<h1>Posts</h1>
-		</header>
-
-		<div>
-			<label for="ptitle">Title</label>
-			<section id="titlesection">
-
-			</section>
-		</div>
-		
-		<div>
-			<label for="pauthor">Author</label>
-			<section id="authorsection">
-
-			</section>
+<div class="imagepost-centered">
+	<header>
+		<h1>Posts</h1>
+	</header>
+	<div id="image-info-container">
+		<div id="image-title-container">
+			<label for="image-title-label">{{currentPost.title}}</label>
 		</div>
 
-		<div>
-			<label for="ctime">Creation Time</label>
-			<section id="ctimesection">
-
-			</section>
+		<div id="image-author-container">
+			<label for="image-author-label">{{currentPost.username}}</label>
 		</div>
 
-		<div>
-			<label for="pimage">Image</label>
-			<section id="imagesection">
+		<div id="image-time-container">
+			<label for="image-time-label">{{currentPost.created}}</label>
+		</div>
 
-			</section>
+		<div id="image-description-container">
+			<label id="image-description-label">{{currentPost.description}}</label>
+		</div>
+
+		<div id="image-post-container">
+			<img id="image-post-image" src="/{{currentPost.photopath}}">
 		</div>
 	</div>
-	
-	
-</body>
-</html>
+</div>

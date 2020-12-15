@@ -1,6 +1,5 @@
 ﻿<nav class="nav-bar">
     <a class="active" href="/">Home</a>
-    <input type="text" placeholder="Search..">
 
     {{#if logged}}
     <a id="logout-button" href="/">Log Out</a>
@@ -9,4 +8,10 @@
     {{/if}}
 
     <a href="/postimage">Post</a>
+
+    <form class="search-form" action="/">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+
 </nav>
