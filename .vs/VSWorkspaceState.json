@@ -2,13 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\application",
+    "\\application\\models",
     "\\application\\public",
+    "\\application\\public\\css",
     "\\application\\public\\images",
-    "\\application\\public\\images\\uploads",
+    "\\application\\public\\js",
     "\\application\\routes",
     "\\application\\views",
-    "\\application\\views\\layouts"
+    "\\application\\views\\partials"
   ],
-  "SelectedNode": "\\application\\views\\registration.hbs",
+  "SelectedNode": "\\application\\routes\\posts.js",
   "PreviewInSolutionExplorer": false
 }
