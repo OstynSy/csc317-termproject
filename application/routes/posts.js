@@ -6,7 +6,7 @@ var multer = require('multer');
 var crypto = require('crypto');
 var PostError = require('../helpers/error/PostError');
 var PostModel = require('../models/Posts');
-const { route } = require('.');
+const { check, validationResult} = require('express-validator');
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb){
@@ -21,22 +21,25 @@ var storage = multer.diskStorage({
 
 var uploader = multer({ storage: storage });
 
-router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
+router.post('/createPost', uploader.single("uploadImage"), [
+    check('ptitle').exists(),
+    check('pdescription').exists(),
+    ], (req, res, next) => {
+
+    const errors = validationResult(req);
+    if (errors.isEmpty() == false) {
+        errorPrint("One of the fields is empty!");
+        req.flash('error', 'One of the fields is empty!');
+        res.redirect('/postimage');
+        return;
+    }
+
     let fileUploaded = req.file.path;
     let fileAsThumbnail = `thumbnail-${req.file.filename}`;
     let destOfThumbnail = req.file.destination + "/" + fileAsThumbnail;
     let title = req.body.ptitle;
     let description = req.body.pdescription;
     let fk_userId = req.session.userId;
-
-    //express validation
-    //Server validation
-    // make sure title desc and fk are not empty
-    //if any values that used for the insert statement
-    //are udnefined, mysql.query or execute will fail
-    //with the following error
-    // BIND parameters cannot be undefined
-    //will fail if db.query('',[undefined])
 
     sharp(fileUploaded)
         .resize(200)
@@ -50,7 +53,7 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
                 res.json({ status: "OK", message: "post was created", "redirect": "/" });
             }
             else {
-                throw new PostError("Post could not be created!!", "/postImage", 200);
+                throw new PostError("Post could not be created!!", "/postimage", 200);
             }
         })
         .catch((err) => {

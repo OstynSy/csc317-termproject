@@ -77,6 +77,7 @@ To install dependencies:
 12. sharp
 13. axios
 14. fetch
+15. express-validator
 
 ## Build Instructions
 1. 

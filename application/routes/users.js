@@ -3,16 +3,29 @@ var router = express.Router();
 const UserModel = require('../models/Users');
 const UserError = require('../helpers/error/UserError');
 var { successPrint, errorPrint } = require('../helpers/debug/debugprinters');
+const { check, validationResult} = require('express-validator');
 
 //localhost:3000/users/register
-router.post('/register', (req, res, next) => {
+router.post('/register', [
+    check('uname').exists(),
+    check('email').exists().isEmail(),
+    check('pword').exists(),
+    check('cpword').exists()
+], (req, res, next) => {
+
+
+    const errors = validationResult(req);
+    if (errors.isEmpty() == false) {
+        errorPrint("One of the fields is empty!");
+        req.flash('error', 'One of the fields is empty!');
+        res.redirect('/registration');
+        return;
+    }
+
     let username = req.body.uname;
     let email = req.body.email;
     let password = req.body.pword;
     let cpassword = req.body.cpword;
-
-    //validate data, if bad send back response
-    //res.redirect('/registration')
 
     UserModel.usernameExists(username)
         .then((userNameDoesExist) => {
@@ -55,12 +68,21 @@ router.post('/register', (req, res, next) => {
         });
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/login',[
+    check('uname', 'Username does not exist').exists(),
+    check('pword', 'Password does not exist').exists()
+    ], (req, res, next) => {
+
+    const errors = validationResult(req);
+    if (errors.isEmpty() == false) {
+        errorPrint("One of the fields is empty!");
+        req.flash('error', 'One or both of the fields is empty!');
+        res.redirect('/login');
+        return;
+    }
+
     let username = req.body.uname;
     let password = req.body.pword;
-
-        //validate data, if bad send back response
-    //res.redirect('/registration')
 
     UserModel.authenticate(username, password)
         .then((loggedUserId) => {
