@@ -2,7 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\application",
-    "\\application\\models",
+    "\\application\\middleware",
     "\\application\\public",
     "\\application\\public\\css",
     "\\application\\public\\images",
@@ -11,6 +11,6 @@
     "\\application\\views",
     "\\application\\views\\partials"
   ],
-  "SelectedNode": "\\application\\routes\\posts.js",
+  "SelectedNode": "\\application\\middleware\\postsmiddleware.js",
   "PreviewInSolutionExplorer": false
 }

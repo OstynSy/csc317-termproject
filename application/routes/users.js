@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../config/database');
 const UserModel = require('../models/Users');
 const UserError = require('../helpers/error/UserError');
 var { successPrint, errorPrint } = require('../helpers/debug/debugprinters');
-var bcrypt = require('bcrypt');
 
 //localhost:3000/users/register
 router.post('/register', (req, res, next) => {
@@ -83,7 +81,8 @@ router.post('/login', (req, res, next) => {
             if (err instanceof UserError) {
                 errorPrint(err.getMessage());
                 req.flash('error', err.getMessage());
-                res.status(err.getStatus());                  
+                res.status(err.getStatus());  
+                res.redirect('/login');
             }
             else {
                 next(err);

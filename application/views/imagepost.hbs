@@ -1,26 +1,81 @@
-<div class="imagepost-centered">
-	<header>
-		<h1>Posts</h1>
-	</header>
-	<div id="image-info-container">
-		<div id="image-title-container">
-			<label for="image-title-label">{{currentPost.title}}</label>
+<div id="post-container">
+	<div id="photo-container">
+		<div id="post-title"> {{currentPost.title}}</div>
+
+		<div id="post-info">
+			<p><span class="form-label">Posted by:</span><span id="post-author"> {{currentPost.username}}</span></p>
+			<p><span class="form-label">Post at:</span><span id="post-date"> {{currentPost.created}}</span></p>
+		</div>
+		<div id="post-description">{{currentPost.description}}</div>
+		<img id="post-image" src="/{{currentPost.photopath}}" alt="A photo should have been here">
+	</div>
+	<div id="comment-container">
+		<div id="messages">
+			{{#each currentPost.comments}}
+				{{> comment this}}
+			{{/each}}
 		</div>
 
-		<div id="image-author-container">
-			<label for="image-author-label">{{currentPost.username}}</label>
-		</div>
+		<div id="comment-box">
 
-		<div id="image-time-container">
-			<label for="image-time-label">{{currentPost.created}}</label>
-		</div>
-
-		<div id="image-description-container">
-			<label id="image-description-label">{{currentPost.description}}</label>
-		</div>
-
-		<div id="image-post-container">
-			<img id="image-post-image" src="/{{currentPost.photopath}}">
+			<textarea id="comment-box-text" class="form-control" aria-label="With textarea" placeholder="Enter Comment Here!"></textarea>
+			<span id="comment-box-button" class="input-group-text">
+				<svg width="1.5em" height="1.5em" viewBox="0 0 16 16"
+					 transform="translate(12, 21)" class="bi bi-chat-square-fill" fill="currentColor" xmlns="http//www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						  d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1
+					   1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+				</svg>
+			</span>
 		</div>
 	</div>
 </div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', (event) => {
+		document.querySelectorAll('span[class=date-posted]').forEach((postedDate) => {
+			postedDate.textContent = new Date(postedDate.textContent).toLocaleString();
+		});
+	});
+
+	function addMessage(data) {
+		let template = document.createElement('template');
+		template.innerHTML =
+			`<div id="message-${data.commentId}">
+				<strong class="author-text"> @${data.username}</strong>
+				<span class="date-posted"> ${new Date().toLocaleString()}</span>
+				<div class="comment-text"> ${data.comment}</div>
+			</div>`;
+			document.getElementById('messages').firstChild.before(template.content.firstChild);
+    }
+
+	document.getElementById('comment-box-button').onclick = (event) => {
+		let commentText = document.getElementById('comment-box-text').value;
+		let postId = document.location.pathname.match(/\d+/g).map(Number)[0];
+
+		if (!commentText) {
+			return;
+		}
+
+		let fetchOptions = {
+			method: "POST",
+			headers: {
+				"Content-Type": "Application/json"
+			},
+			body: JSON.stringify({
+				comment: commentText,
+				postId, postId
+			})
+		}
+		fetch('/comments/create', fetchOptions)
+			.then((response) => {
+				if (data.code == 1) {
+					addMessage(data);
+				}
+				else {
+					addFlashFromFrontEnd(data.message, data.status);
+                }
+			})
+			.catch((err) => console.log(err));
+    }
+</script>
