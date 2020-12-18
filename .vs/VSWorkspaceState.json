@@ -2,15 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\application",
-    "\\application\\middleware",
-    "\\application\\public",
     "\\application\\public\\css",
-    "\\application\\public\\images",
     "\\application\\public\\js",
-    "\\application\\routes",
     "\\application\\views",
+    "\\application\\views\\layouts",
     "\\application\\views\\partials"
   ],
-  "SelectedNode": "\\application\\middleware\\postsmiddleware.js",
+  "SelectedNode": "\\application\\views\\postimage.hbs",
   "PreviewInSolutionExplorer": false
 }
